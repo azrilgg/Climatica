@@ -9,7 +9,7 @@ let startX;
 let scrollLeft;
 
 // Mapping Read More links sesuai slide index
-const readMoreLinks = [
+const ReadMoreLinks = [
     "https://en.wikipedia.org/wiki/Forest",
     "https://en.wikipedia.org/wiki/Mountain",
     "https://en.wikipedia.org/wiki/River",
@@ -27,7 +27,7 @@ const readMoreLinks = [
 // Set initial Read More link
 const updateReadMoreLink = (index) => {
     const btn = slides[index].querySelector('a.btn');
-    if (btn) btn.href = readMoreLinks[index];
+    if (btn) btn.href = ReadMoreLinks[index];
 }
 
 // ======================
@@ -51,7 +51,9 @@ setInterval(nextSlide, 6000);
 // ======================
 // Drag & Swipe
 // ======================
-
+let isDown = false;
+let startX;
+let scrollLeft;
 // Mouse events (desktop)
 slider.addEventListener('mousedown', (e) => {
     isDown = true;
