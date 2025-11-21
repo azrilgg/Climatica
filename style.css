@@ -578,3 +578,123 @@ img, .cat-img img, .gallery-grid img, .slide {
         transform: scale(1); /* hilangkan zoom supaya tidak blur */
     }
 }
+
+
+/* =====================================================
+   ULTRA RESPONSIVE FIX – ALL DEVICES
+===================================================== */
+
+/* ————————————————
+   SMALL PHONES ≤ 480px
+——————————————— */
+@media (max-width: 480px) {
+
+    .hero {
+        height: 75vh;
+    }
+
+    .hero .slide .content {
+        left: 15px;
+        right: 15px;
+        padding: 18px;
+        top: 62%;
+    }
+
+    .hero .content h1 {
+        font-size: 28px;
+    }
+
+    .hero .content p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .btn {
+        padding: 10px 22px;
+        font-size: 14px;
+    }
+
+    .social {
+        right: 10px;
+        gap: 15px;
+    }
+
+    .categories, .gallery, .about, .contact {
+        padding: 50px 20px;
+    }
+
+    .cat-img img {
+        height: 150px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ————————————————
+   TABLET 481px – 991px
+——————————————— */
+@media (min-width: 481px) and (max-width: 991px) {
+
+    .hero {
+        height: 85vh;
+    }
+
+    .hero .slide .content {
+        max-width: 420px;
+    }
+
+    .hero .content h1 {
+        font-size: 42px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+/* ————————————————
+   LAPTOP 992px – 1400px
+——————————————— */
+@media (min-width: 992px) and (max-width: 1400px) {
+
+    .hero .content h1 {
+        font-size: 50px;
+    }
+
+    .parallax-content h2 {
+        font-size: 40px;
+    }
+
+    .category-grid {
+        gap: 22px;
+    }
+}
+
+/* ————————————————
+   ULTRAWIDE 1401px+
+——————————————— */
+@media (min-width: 1401px) {
+
+    .hero .content h1 {
+        font-size: 68px;
+    }
+
+    .hero .slide .content {
+        max-width: 680px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .gallery-grid img {
+        height: 340px;
+        object-fit: cover;
+    }
+}
