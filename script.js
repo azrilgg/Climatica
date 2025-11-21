@@ -1,13 +1,43 @@
 // ===============================
-// HERO SLIDER SYSTEM
+// HERO SLIDER SYSTEM - DRAG & SWIPE + READ MORE LINK FIX
 // ===============================
 
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+const slider = document.querySelector('.hero-slider');
+const slides = document.querySelectorAll('.slide');
+let isDown = false;
+let startX;
+let scrollLeft;
 
+// Mapping Read More links sesuai slide index
+const readMoreLinks = [
+    "https://en.wikipedia.org/wiki/Forest",
+    "https://en.wikipedia.org/wiki/Mountain",
+    "https://en.wikipedia.org/wiki/River",
+    "https://en.wikipedia.org/wiki/Waterfall",
+    "https://en.wikipedia.org/wiki/Desert",
+    "https://en.wikipedia.org/wiki/Winter",
+    "https://en.wikipedia.org/wiki/Lake",
+    "https://en.wikipedia.org/wiki/Sunrise",
+    "https://en.wikipedia.org/wiki/Sunset",
+    "https://en.wikipedia.org/wiki/Fog",
+    "https://en.wikipedia.org/wiki/Sky",
+    "https://en.wikipedia.org/wiki/Rainforest"
+];
+
+// Set initial Read More link
+const updateReadMoreLink = (index) => {
+    const btn = slides[index].querySelector('a.btn');
+    if (btn) btn.href = readMoreLinks[index];
+}
+
+// ======================
+// Auto Slide Function
+// ======================
+let index = 0;
 function showSlide(i) {
     slides.forEach(slide => slide.classList.remove("active"));
     slides[i].classList.add("active");
+    updateReadMoreLink(i);
 }
 
 function nextSlide() {
@@ -15,7 +45,60 @@ function nextSlide() {
     showSlide(index);
 }
 
-setInterval(nextSlide, 6000); // Auto slideshow 6s
+// Auto slideshow 6s
+setInterval(nextSlide, 6000);
+
+// ======================
+// Drag & Swipe
+// ======================
+
+// Mouse events (desktop)
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active-drag');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active-drag');
+});
+
+slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active-drag');
+});
+
+slider.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2; // drag speed
+    slider.scrollLeft = scrollLeft - walk;
+});
+
+// Touch events (mobile)
+slider.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('touchend', () => {
+    isDown = false;
+});
+
+slider.addEventListener('touchmove', (e) => {
+    if(!isDown) return;
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2; // swipe speed
+    slider.scrollLeft = scrollLeft - walk;
+});
+
+// Initialize first slide link
+updateReadMoreLink(index);
+showSlide(index);
 
 
 // ===============================
