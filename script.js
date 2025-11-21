@@ -20,6 +20,31 @@ function nextSlide() {
 // Jalankan auto slideshow tiap 6 detik
 setInterval(nextSlide, 6000);
 
+// Array berisi link Wikipedia untuk tiap slide (urut sesuai slide)
+const wikiLinks = [
+    "https://en.wikipedia.org/wiki/Forest",
+    "https://en.wikipedia.org/wiki/Mountain",
+    "https://en.wikipedia.org/wiki/River",
+    "https://en.wikipedia.org/wiki/Waterfall",
+    "https://en.wikipedia.org/wiki/Desert",
+    "https://en.wikipedia.org/wiki/Winter",
+    "https://en.wikipedia.org/wiki/Lake",
+    "https://en.wikipedia.org/wiki/Sunrise",
+    "https://en.wikipedia.org/wiki/Sunset",
+    "https://en.wikipedia.org/wiki/Fog",
+    "https://en.wikipedia.org/wiki/Sky",
+    "https://en.wikipedia.org/wiki/Rainforest"
+];
+
+// Ambil semua tombol "Read More" di slider
+let slideBtns = document.querySelectorAll(".slide .btn");
+
+// Loop dan assign link ke masing-masing tombol
+slideBtns.forEach((btn, i) => {
+    if(wikiLinks[i]) {
+        btn.setAttribute("href", wikiLinks[i]);
+    }
+});
 // ===============================
 // NAVBAR SCROLL EFFECT
 // ===============================
