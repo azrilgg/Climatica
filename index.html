@@ -1,1 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climatica Weather Explorer</title>
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+    <nav class="navbar" data-aos="fade-down" data-aos-duration="1200">
+        <div class="logo">CLIMATICA</div>
+        <div class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" data-aos="fade-down" data-aos-delay="150">Home</a></li>
+            <li><a href="#explore" data-aos="fade-down" data-aos-delay="250">Explore</a></li>
+            <li><a href="#gallery" data-aos="fade-down" data-aos-delay="350">Gallery</a></li>
+            <li><a href="#about" data-aos="fade-down" data-aos-delay="450">About</a></li>
+            <li><a href="#contact" data-aos="fade-down" data-aos-delay="550">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- ================= HERO SLIDER ================= -->
+<header id="home" class="hero">
+    <div class="hero-slider">
+
+        <!-- SLIDER 1–12 -->
+        <div class="slide active" style="background-image: url('image/slider1.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>FOREST <span>ADVENTURE</span></h1>
+                <p>Explore the deep green world of ancient forests and peaceful wildlife.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider2.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>MAJESTIC <span>MOUNTAINS</span></h1>
+                <p>Reach the highest peaks and witness breathtaking horizons.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider3.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>CALM <span>RIVERS</span></h1>
+                <p>Follow the gentle flow of crystal-clear fresh waters.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider4.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>POWERFUL <span>WATERFALLS</span></h1>
+                <p>Feel the refreshing energy from the roaring waterfalls.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider5.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>GOLDEN <span>DESERTS</span></h1>
+                <p>Experience the silent and endless beauty of warm desert dunes.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider6.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>WINTER <span>LANDSCAPES</span></h1>
+                <p>Walk through peaceful snowy mountains and icy forests.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider7.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>SERENE <span>LAKES</span></h1>
+                <p>Enjoy the calm water reflections under open skies.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider8.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>MORNING <span>SUNRISE</span></h1>
+                <p>Watch the golden sun slowly wake the world with warm light.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider9.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>EVENING <span>SUNSET</span></h1>
+                <p>Feel the calm atmosphere as the day softly fades away.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider10.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>MYSTIC <span>FOG</span></h1>
+                <p>Enter a dreamy world filled with mysterious foggy forests.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider11.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>OPEN <span>SKY</span></h1>
+                <p>Witness stunning clouds and beautiful blue horizons.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('image/slider12.jpg');">
+            <div class="content" data-aos="fade-up">
+                <h1>DENSE <span>RAINFOREST</span></h1>
+                <p>Venture into the heart of the most alive places on Earth.</p>
+                <button class="btn">Read More <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Social -->
+    <div class="social" data-aos="fade-left">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-github"></i>
+    </div>
+</header>
+
+
+<!-- ================= STATIC SECTION ================= -->
+<section class="parallax normal-section" data-aos="fade-up">
+    <div class="parallax-content">
+        <h2>Beautiful Climatica Experience</h2>
+        <p>Enjoy smooth animations, atmospheric visuals, and cinematic layouts.</p>
+        <button class="btn-outline">Start Exploring</button>
+    </div>
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="about">
+    <h2 data-aos="fade-up">About The Project</h2>
+    <p data-aos="fade-up" data-aos-delay="150">
+        This website is created with a high-end premium design featuring cinematic sliders,
+        animations, and 12 advanced nature categories. Built to deliver a smooth experience
+        across all devices.
+    </p>
+</section>
+
+
+<!-- ================= 12 CATEGORIES ================= -->
+<section id="explore" class="categories">
+    <h2 data-aos="fade-up">Nature Categories</h2>
+
+    <div class="category-grid">
+
+        <!-- CAT 1–12 -->
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat1.jpg" alt=""></div>
+            <div class="cat-text"><h3>Forest</h3><p>Peaceful green atmosphere with fresh natural energy.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat2.jpg" alt=""></div>
+            <div class="cat-text"><h3>Mountain</h3><p>Majestic peaks rising above the clouds.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat3.jpg" alt=""></div>
+            <div class="cat-text"><h3>River</h3><p>Calming streams flowing endlessly through nature.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat4.jpg" alt=""></div>
+            <div class="cat-text"><h3>Waterfall</h3><p>Powerful drops of nature creating pure mist.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat5.jpg" alt=""></div>
+            <div class="cat-text"><h3>Desert</h3><p>Golden dunes shaped by endless wind.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat6.jpg" alt=""></div>
+            <div class="cat-text"><h3>Snow</h3><p>Cold silent landscapes covered in frost.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat7.jpg" alt=""></div>
+            <div class="cat-text"><h3>Lake</h3><p>Crystal waters reflecting the blue sky.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat8.jpg" alt=""></div>
+            <div class="cat-text"><h3>Sunrise</h3><p>Warm light greeting the morning air.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat9.jpg" alt=""></div>
+            <div class="cat-text"><h3>Sunset</h3><p>Golden hour painting the world beautifully.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat10.jpg" alt=""></div>
+            <div class="cat-text"><h3>Fog</h3><p>Mysterious atmosphere wrapping the horizon.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat11.jpg" alt=""></div>
+            <div class="cat-text"><h3>Sky</h3><p>Endless blue canvas of clouds and light.</p></div>
+        </div>
+
+        <div class="cat-card" data-aos="zoom-in">
+            <div class="cat-img"><img src="image/cat12.jpg" alt=""></div>
+            <div class="cat-text"><h3>Rainforest</h3><p>Dense life filled with exotic sounds and colors.</p></div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery" class="gallery">
+    <h2 data-aos="fade-up">Cinematic Gallery</h2>
+
+    <div class="gallery-grid">
+        <img data-aos="fade-up" src="image/gallery1.jpg">
+        <img data-aos="fade-up" data-aos-delay="100" src="image/gallery2.jpg">
+        <img data-aos="fade-up" data-aos-delay="200" src="image/gallery3.jpg">
+        <img data-aos="fade-up" data-aos-delay="300" src="image/gallery4.jpg">
+        <img data-aos="fade-up" data-aos-delay="400" src="image/gallery5.jpg">
+        <img data-aos="fade-up" data-aos-delay="500" src="image/gallery6.jpg">
+    </div>
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+    <h2 data-aos="fade-up">Contact</h2>
+    <p data-aos="fade-up" data-aos-delay="150">Feel free to send your feedback or suggestions.</p>
+
+    <form data-aos="fade-up" data-aos-delay="300">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send <i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer data-aos="fade-up">
+    <p>© 2025 Nature Cinematic Explorer • Designed by Riel</p>
+</footer>
+
+
+<!-- AOS SCRIPT -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1200,
+        once: true
+    });
+</script>
+
+<!-- SLIDER JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
