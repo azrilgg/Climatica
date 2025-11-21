@@ -512,3 +512,69 @@ footer {
         padding: 10px 0;
     }
 }
+
+/* ==============================
+   ANTI PECAH IMAGE GLOBAL FIX
+============================== */
+img, .cat-img img, .gallery-grid img, .slide {
+    image-rendering: auto;
+    -webkit-optimize-contrast;
+    -ms-interpolation-mode: bicubic;
+}
+
+/* Agar gambar tidak ketarik berlebihan */
+.slide {
+    background-size: cover;
+    background-position: center center;
+}
+
+/* Untuk mobile hindari crop ekstrem */
+@media (max-width: 600px) {
+    .slide {
+        background-size: contain;
+        background-color: #000;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        height: 80vh;
+    }
+
+    .hero .slide .content {
+        top: 60%;
+        left: 20px;
+        right: 20px;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .hero .content h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .hero .content h1 span {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 18px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .parallax-bg {
+        background-size: cover;
+        background-position: center;
+        transform: scale(1); /* hilangkan zoom supaya tidak blur */
+    }
+}
