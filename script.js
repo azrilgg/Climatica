@@ -8,9 +8,6 @@ let index = 0;
 function showSlide(i) {
     slides.forEach(slide => slide.classList.remove("active"));
     slides[i].classList.add("active");
-
-    // Opsional: bisa log slide aktif
-    // console.log("Slide aktif:", slides[i].querySelector("h1").innerText);
 }
 
 function nextSlide() {
@@ -123,11 +120,15 @@ inputs.forEach(input => {
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+        const target = this.getAttribute("href");
+        // Hanya smooth scroll untuk internal section, biar link eksternal tetap normal
+        if (target.startsWith("#")) {
+            e.preventDefault();
+            const el = document.querySelector(target);
+            if (el) {
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
     });
 });
 
