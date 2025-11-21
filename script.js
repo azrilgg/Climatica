@@ -1,36 +1,39 @@
 // ===============================
-// HERO SLIDER SYSTEM (MANUAL)
+// HERO SLIDER SYSTEM
 // ===============================
 
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
+// Ambil tombol Read More di setiap slide
+let readMoreBtns = document.querySelectorAll(".slide .btn");
+
+// Simpan href masing-masing slide
+let slideLinks = Array.from(readMoreBtns).map(btn => btn.href);
+
 function showSlide(i) {
     slides.forEach(slide => slide.classList.remove("active"));
     slides[i].classList.add("active");
+
+    // Update Read More link sesuai slide aktif
+    readMoreBtns.forEach((btn, idx) => {
+        if (idx === i) {
+            btn.style.display = "inline-block"; // tampilkan tombol slide aktif
+        } else {
+            btn.style.display = "none"; // sembunyikan tombol slide lain
+        }
+    });
 }
 
-// Next / Prev Button Functions
 function nextSlide() {
     index = (index + 1) % slides.length;
     showSlide(index);
 }
 
-function prevSlide() {
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide(index);
-}
-
-// Optional: Assign to buttons if ada
-const nextBtn = document.querySelector(".slide-next");
-const prevBtn = document.querySelector(".slide-prev");
-
-if (nextBtn) nextBtn.addEventListener("click", nextSlide);
-if (prevBtn) prevBtn.addEventListener("click", prevSlide);
-
-// Tampilkan slide pertama awalnya
+// Tampilkan slide pertama secara benar
 showSlide(index);
 
+setInterval(nextSlide, 6000); // Auto slideshow 6s
 
 // ===============================
 // NAVBAR SCROLL EFFECT
@@ -49,7 +52,6 @@ window.addEventListener("scroll", () => {
         navbar.style.padding = "20px 60px";
     }
 });
-
 
 // ===============================
 // CATEGORY CLICK ANIMATION
@@ -70,7 +72,6 @@ categories.forEach(cat => {
     });
 });
 
-
 // ===============================
 // GALLERY CLICK ZOOM ANIMATION
 // ===============================
@@ -88,7 +89,6 @@ galleryImgs.forEach(img => {
     });
 });
 
-
 // ===============================
 // SMOOTH BUTTON CLICK EFFECT
 // ===============================
@@ -104,7 +104,6 @@ buttons.forEach(btn => {
         btn.style.transform = "scale(1)";
     });
 });
-
 
 // ===============================
 // INPUT FOCUS GLOW
@@ -124,7 +123,6 @@ inputs.forEach(input => {
     });
 });
 
-
 // ===============================
 // SMOOTH SCROLL FIX
 // ===============================
@@ -138,7 +136,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         });
     });
 });
-
 
 // =======================
 // MOBILE NAV TOGGLE
