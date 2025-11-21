@@ -1,13 +1,40 @@
 // ===============================
-// HERO SLIDER SYSTEM
+// HERO SLIDER SYSTEM WITH DYNAMIC READMORE
 // ===============================
 
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
+// Ambil tombol Read More utama (dalam hero)
+const heroBtn = document.querySelector(".hero .btn");
+
 function showSlide(i) {
-    slides.forEach(slide => slide.classList.remove("active"));
-    slides[i].classList.add("active");
+    slides.forEach((slide, idx) => {
+        if (idx === i) {
+            slide.classList.add("active");
+            slide.style.opacity = 0;
+            slide.style.display = "block";
+
+            // fade in
+            setTimeout(() => {
+                slide.style.transition = "opacity 0.8s ease";
+                slide.style.opacity = 1;
+            }, 50);
+
+            // Update Read More href & text
+            const btnInSlide = slide.querySelector(".btn");
+            if (btnInSlide) {
+                heroBtn.setAttribute("href", btnInSlide.getAttribute("href"));
+                heroBtn.innerHTML = btnInSlide.innerHTML;
+            }
+
+        } else {
+            slide.classList.remove("active");
+            slide.style.transition = "none";
+            slide.style.opacity = 0;
+            slide.style.display = "none";
+        }
+    });
 }
 
 function nextSlide() {
@@ -15,19 +42,16 @@ function nextSlide() {
     showSlide(index);
 }
 
-// Tampilkan slide pertama
+// init first slide
 showSlide(index);
 
-// Auto slideshow 6 detik
-setInterval(nextSlide, 6000);
+setInterval(nextSlide, 6000); // Auto slideshow 6s
 
 
 // ===============================
 // NAVBAR SCROLL EFFECT
 // ===============================
-
 const navbar = document.querySelector(".navbar");
-
 window.addEventListener("scroll", () => {
     if (window.scrollY > 100) {
         navbar.style.background = "rgba(0,0,0,0.75)";
@@ -44,16 +68,12 @@ window.addEventListener("scroll", () => {
 // ===============================
 // CATEGORY CLICK ANIMATION
 // ===============================
-
 const categories = document.querySelectorAll(".cat-card");
 
 categories.forEach(cat => {
     cat.addEventListener("click", () => {
         cat.classList.add("clicked");
-
-        setTimeout(() => {
-            cat.classList.remove("clicked");
-        }, 500);
+        setTimeout(() => cat.classList.remove("clicked"), 500);
 
         console.log("Category opened:", cat.querySelector("h3").innerText);
     });
@@ -63,14 +83,12 @@ categories.forEach(cat => {
 // ===============================
 // GALLERY CLICK ZOOM ANIMATION
 // ===============================
-
 const galleryImgs = document.querySelectorAll(".gallery-grid img");
 
 galleryImgs.forEach(img => {
     img.addEventListener("click", () => {
         img.style.transform = "scale(1.2)";
         img.style.transition = "0.4s ease";
-
         setTimeout(() => {
             img.style.transform = "scale(1)";
         }, 400);
@@ -81,24 +99,17 @@ galleryImgs.forEach(img => {
 // ===============================
 // SMOOTH BUTTON CLICK EFFECT
 // ===============================
-
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach(btn => {
-    btn.addEventListener("mousedown", () => {
-        btn.style.transform = "scale(0.95)";
-    });
-
-    btn.addEventListener("mouseup", () => {
-        btn.style.transform = "scale(1)";
-    });
+    btn.addEventListener("mousedown", () => btn.style.transform = "scale(0.95)");
+    btn.addEventListener("mouseup", () => btn.style.transform = "scale(1)");
 });
 
 
 // ===============================
 // INPUT FOCUS GLOW
 // ===============================
-
 const inputs = document.querySelectorAll("input, textarea");
 
 inputs.forEach(input => {
@@ -106,7 +117,6 @@ inputs.forEach(input => {
         input.style.border = "1px solid #00ffc8";
         input.style.boxShadow = "0 0 10px #00ffc870";
     });
-
     input.addEventListener("blur", () => {
         input.style.border = "1px solid rgba(255,255,255,0.2)";
         input.style.boxShadow = "none";
@@ -117,18 +127,13 @@ inputs.forEach(input => {
 // ===============================
 // SMOOTH SCROLL FIX
 // ===============================
-
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", function (e) {
-        const target = this.getAttribute("href");
-        // Hanya smooth scroll untuk internal section, biar link eksternal tetap normal
-        if (target.startsWith("#")) {
-            e.preventDefault();
-            const el = document.querySelector(target);
-            if (el) {
-                el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-        }
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
     });
 });
 
@@ -142,9 +147,7 @@ const navLinks = document.querySelector('.nav-links');
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
 
-    if (navLinks.classList.contains('show')) {
-        menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-    } else {
-        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-    }
+    menuToggle.innerHTML = navLinks.classList.contains('show')
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
 });
