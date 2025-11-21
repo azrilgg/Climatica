@@ -5,24 +5,12 @@
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
-// Ambil tombol Read More di setiap slide
-let readMoreBtns = document.querySelectorAll(".slide .btn");
-
-// Simpan href masing-masing slide
-let slideLinks = Array.from(readMoreBtns).map(btn => btn.href);
-
 function showSlide(i) {
     slides.forEach(slide => slide.classList.remove("active"));
     slides[i].classList.add("active");
 
-    // Update Read More link sesuai slide aktif
-    readMoreBtns.forEach((btn, idx) => {
-        if (idx === i) {
-            btn.style.display = "inline-block"; // tampilkan tombol slide aktif
-        } else {
-            btn.style.display = "none"; // sembunyikan tombol slide lain
-        }
-    });
+    // Opsional: bisa log slide aktif
+    // console.log("Slide aktif:", slides[i].querySelector("h1").innerText);
 }
 
 function nextSlide() {
@@ -30,10 +18,12 @@ function nextSlide() {
     showSlide(index);
 }
 
-// Tampilkan slide pertama secara benar
+// Tampilkan slide pertama
 showSlide(index);
 
-setInterval(nextSlide, 6000); // Auto slideshow 6s
+// Auto slideshow 6 detik
+setInterval(nextSlide, 6000);
+
 
 // ===============================
 // NAVBAR SCROLL EFFECT
@@ -53,11 +43,12 @@ window.addEventListener("scroll", () => {
     }
 });
 
+
 // ===============================
 // CATEGORY CLICK ANIMATION
 // ===============================
 
-const categories = document.querySelectorAll(".cat-item");
+const categories = document.querySelectorAll(".cat-card");
 
 categories.forEach(cat => {
     cat.addEventListener("click", () => {
@@ -67,10 +58,10 @@ categories.forEach(cat => {
             cat.classList.remove("clicked");
         }, 500);
 
-        // OPTIONAL : buka modal / detail
         console.log("Category opened:", cat.querySelector("h3").innerText);
     });
 });
+
 
 // ===============================
 // GALLERY CLICK ZOOM ANIMATION
@@ -89,6 +80,7 @@ galleryImgs.forEach(img => {
     });
 });
 
+
 // ===============================
 // SMOOTH BUTTON CLICK EFFECT
 // ===============================
@@ -104,6 +96,7 @@ buttons.forEach(btn => {
         btn.style.transform = "scale(1)";
     });
 });
+
 
 // ===============================
 // INPUT FOCUS GLOW
@@ -123,6 +116,7 @@ inputs.forEach(input => {
     });
 });
 
+
 // ===============================
 // SMOOTH SCROLL FIX
 // ===============================
@@ -137,6 +131,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     });
 });
 
+
 // =======================
 // MOBILE NAV TOGGLE
 // =======================
@@ -146,7 +141,6 @@ const navLinks = document.querySelector('.nav-links');
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
 
-    // toggle icon
     if (navLinks.classList.contains('show')) {
         menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
     } else {
