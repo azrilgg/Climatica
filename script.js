@@ -117,14 +117,19 @@ inputs.forEach(input => {
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+
+        // Hanya jalankan smooth scroll kalau targetnya ADA
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+
     });
 });
-
 // =======================
 // MOBILE NAV TOGGLE
 // =======================
