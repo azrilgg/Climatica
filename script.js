@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showSlide(index);
     }
 
-    setInterval(nextSlide, 6000);
+    setInterval(nextSlide, 5000);
     showSlide(index);
 
 
