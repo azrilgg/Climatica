@@ -114,15 +114,15 @@ inputs.forEach(input => {
 // ===============================
 // SMOOTH SCROLL FIX
 // ===============================
-
 document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", function (e) {
 
-        // Hanya jalankan smooth scroll kalau targetnya ADA
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
+        const href = this.getAttribute("href");
+
+        // HANYA jalankan smooth scroll kalau benar-benar internal anchor
+        if (href.startsWith("#") && document.querySelector(href)) {
             e.preventDefault();
-            target.scrollIntoView({
+            document.querySelector(href).scrollIntoView({
                 behavior: "smooth",
                 block: "start"
             });
@@ -130,6 +130,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
     });
 });
+
 // =======================
 // MOBILE NAV TOGGLE
 // =======================
