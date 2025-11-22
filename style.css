@@ -73,7 +73,6 @@ html {
 }
 
 
-
 /* ==============================
    HERO (Slider)
 ============================== */
@@ -104,12 +103,12 @@ html {
     opacity: 0;
     transition: opacity 1.2s ease;
 
-    pointer-events: none; /* ⛔ slide tidak aktif tidak bisa diklik */
+    pointer-events: none; /* slide tidak aktif tidak bisa diklik */
 }
 
 .hero .slide.active {
     opacity: 1;
-    pointer-events: auto; /* ✔ hanya slide aktif bisa diklik */
+    pointer-events: auto; /* hanya slide aktif yg bisa diklik */
 }
 
 /* CONTENT */
@@ -129,7 +128,7 @@ html {
 
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero .content h1 {
@@ -166,6 +165,40 @@ html {
 .btn:hover {
     transform: translateX(5px);
     background: #00cfa2;
+}
+
+/* ==============================
+   HERO — ARROW CONTROLS
+============================== */
+.hero-controls {
+    position: absolute;
+    width: 100%;
+    bottom: 50%;
+    transform: translateY(50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+    z-index: 50;
+    pointer-events: none; /* biar ga ganggu klik slide */
+}
+
+.hero-controls button {
+    width: 55px;
+    height: 55px;
+    pointer-events: auto;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(4px);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.hero-controls button:hover {
+    background: rgba(0,0,0,0.7);
+    transform: scale(1.07);
 }
 
 
