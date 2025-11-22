@@ -72,6 +72,8 @@ html {
     color: #00ffc8;
 }
 
+
+
 /* ==============================
    HERO (Slider)
 ============================== */
@@ -88,6 +90,7 @@ html {
     position: relative;
 }
 
+/* SLIDE BASE */
 .hero .slide {
     width: 100%;
     height: 100%;
@@ -100,12 +103,16 @@ html {
 
     opacity: 0;
     transition: opacity 1.2s ease;
+
+    pointer-events: none; /* ⛔ slide tidak aktif tidak bisa diklik */
 }
 
 .hero .slide.active {
     opacity: 1;
+    pointer-events: auto; /* ✔ hanya slide aktif bisa diklik */
 }
 
+/* CONTENT */
 .hero .slide .content {
     position: absolute;
     top: 55%;
@@ -144,6 +151,7 @@ html {
     opacity: 0.9;
 }
 
+/* BUTTON */
 .btn {
     padding: 12px 28px;
     background: #00ffc8;
