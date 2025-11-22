@@ -1,50 +1,28 @@
 // ===============================
-// HERO SLIDER SYSTEM
+// HERO SLIDER — FINAL FIX VERSION
 // ===============================
 
+// Ambil semua slide
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
-// Tampilkan slide ke-i, tanpa mengubah link
+// Fungsi untuk menampilkan slide
 function showSlide(i) {
-    slides.forEach(slide => slide.classList.remove("active"));
+    slides.forEach(s => s.classList.remove("active"));
     slides[i].classList.add("active");
 }
 
-// Next slide otomatis
+// Auto next slide
 function nextSlide() {
     index = (index + 1) % slides.length;
     showSlide(index);
 }
 
-// Jalankan auto slideshow tiap 6 detik
+// Jalan setiap 6 detik
 setInterval(nextSlide, 6000);
 
-// Array berisi link Wikipedia untuk tiap slide (urut sesuai slide)
-const wikiLinks = [
-    "https://en.wikipedia.org/wiki/Forest",
-    "https://en.wikipedia.org/wiki/Mountain",
-    "https://en.wikipedia.org/wiki/River",
-    "https://en.wikipedia.org/wiki/Waterfall",
-    "https://en.wikipedia.org/wiki/Desert",
-    "https://en.wikipedia.org/wiki/Winter",
-    "https://en.wikipedia.org/wiki/Lake",
-    "https://en.wikipedia.org/wiki/Sunrise",
-    "https://en.wikipedia.org/wiki/Sunset",
-    "https://en.wikipedia.org/wiki/Fog",
-    "https://en.wikipedia.org/wiki/Sky",
-    "https://en.wikipedia.org/wiki/Rainforest"
-];
-
-// Ambil semua tombol "Read More" di slider
-let slideBtns = document.querySelectorAll(".slide .btn");
-
-// Loop dan assign link ke masing-masing tombol
-slideBtns.forEach((btn, i) => {
-    if(wikiLinks[i]) {
-        btn.setAttribute("href", wikiLinks[i]);
-    }
-});
+// Tampilkan awal
+showSlide(index);
 // ===============================
 // NAVBAR SCROLL EFFECT
 // ===============================
